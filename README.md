@@ -3,6 +3,7 @@
 A LuaLoader for the game 'Casualties: Unknown'
 
 **It's Currently in Early Development and will have constant changes made, Until a stable version is released, expect frequent API and behavior changes**
+**Also note that this project might get abandonned and no longer worked on as rather i lost motivation or have other more important projects or just things to do**
 
 Made possible using NLua and KeraLua
 
