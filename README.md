@@ -280,7 +280,7 @@ end
 
 # QnA
 - Q: Why would anyone use this?
-- A: tbh idk, i guess compilation is not required as you can directly change the .lua files, also it's easier(?), for me atleast
+- A: tbh idk, i guess compilation isn't required as you can directly change the .lua files, also it's easier(?), for me atleast
 
 - Q: Will this be published to modding 'websites' like Nexus?
 - A: Yes, when i will make a stable release which will not have constant API name changes and other, i will publish it there, but for now it's only in early development
