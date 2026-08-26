@@ -1,3 +1,5 @@
+// be ware that there will be some weird stuff with whitespaces and such as this code was written in notepad (i was lazy to use an Actual IDE)
+
 using BepInEx;
 using NLua;
 using System;
