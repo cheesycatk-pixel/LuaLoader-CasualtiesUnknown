@@ -285,4 +285,5 @@ end
 - Q: Will this be published to modding 'websites' like Nexus?
 - A: Yes, when i will make a stable release which will not have constant API name changes and other, i will publish it there, but for now it's only in early development
 
+# LICENSE
 [MIT_License](LICENSE)
