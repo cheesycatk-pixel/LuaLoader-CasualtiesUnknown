@@ -768,10 +768,7 @@ public class LuaLoader : BaseUnityPlugin
         }
     }
 
-    // =========================================================
     // cleanup
-    // =========================================================
-
     private void OnDestroy()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
