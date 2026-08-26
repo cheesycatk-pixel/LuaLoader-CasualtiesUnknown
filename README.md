@@ -2,15 +2,15 @@
 
 A LuaLoader for the game 'Casualties: Unknown'
 
-**It's Currently in Early Development and will have constant changes made, up until a stable version is released, expect some API and behaviour changes**
+**It's Currently in Early Development and will have constant changes made, Until a stable version is released, expect frequent API and behavior changes**
 
 Made possible using NLua and KeraLua
 
 ## Setup
-- Download the .Zip file in Releases
+- Download the .zip file in Releases
 - Unzip it inside plugins in the BepInEx Folder
 - Do NOT move all the DLLs and the main.lua file outside the folder it got unzipped in
-- Open the main.lua file and write your code there, no compiling required, LuaLoader.dll should execute it once the game launches
+- Open the main.lua file and write your code there, no compilation is required, LuaLoader.dll should execute it once the game launches
 
 ## Usage
 - Inside the main.lua, you should always start with a global on_scene_loaded() function, this is your main function where everything will be executed
@@ -82,7 +82,9 @@ Returns:
 ```lua
 local info = new_object(ItemInfo, {})
 local rec = new_object(Recognition, {2})
+info.rec = rec
 ```
+(**NOTE**: Arguments are passed to the C# constructor in the same order, same for call_static below)
 
 **call_static(type, method, arguments)** - Calls a static C# method
 - The loader finds a static method with the specified name and invokes it using the provided arguments
@@ -235,7 +237,7 @@ local assemblies = AppDomain:GetAssemblies()
 
 ### Lua callbacks
 
-**on_scene_loaded(scene)** - idk
+**on_scene_loaded(scene)** - Called automatically whenever Unity loads a scene
 - If your Lua script defines this function, LuaLoader automatically calls it whenever Unity loads a scene
 
 # Accessing C# objects
@@ -258,9 +260,29 @@ And C# properties/fields can be read:
 local someValue = object.field
 ```
 
+# C#/.NET Integration
+
+LuaLoader uses NLua to expose .NET objects to Lua
+
+Types returned by `get_type()` are `System.Type` objects and can be inspected using .NET reflection
+
+```lua
+local ItemInfo = get_type("ItemInfo")
+
+log(ItemInfo.FullName)
+
+local methods = ItemInfo:GetMethods()
+
+for i = 0, methods.Length - 1 do
+    log(methods[i].Name)
+end
+```
+
 # QnA
 - Q: Why would anyone use this?
-- A: tbh idk, i guess comiling is not required as you can directly change the .lua files, also it's easier(?), for me atleast
+- A: tbh idk, i guess compilation is not required as you can directly change the .lua files, also it's easier(?), for me atleast
 
 - Q: Will this be published to modding 'websites' like Nexus?
-- A: Yes, when i will make a stable release which will not have constant API name changes and other, i will publish it there, for now it's only in early development
+- A: Yes, when i will make a stable release which will not have constant API name changes and other, i will publish it there, but for now it's only in early development
+
+[MIT_License](LICENSE)
