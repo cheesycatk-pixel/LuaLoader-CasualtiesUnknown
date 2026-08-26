@@ -429,7 +429,6 @@ public class LuaLoader : BaseUnityPlugin
                 yield break;
             }
 
-            // Check again next frame.
             yield return null;
         }
     }
